@@ -3,7 +3,7 @@ Guess That Song
 
 Song-guessing game using Grooveshark's api.
 
-**Note to contributors: For these php files to work, they need config.php included. Please make sure that it is created and excluded from git by placing "config.php" in your .gitignore.**
+**Note to contributors: For these php files to work, they need config.php included. Please make sure that it is created and excluded from git by placing "config.php" in your .gitignore. You need the variables $api_key, $api_secret, $test_username, $test_password.**
 
 Documentation
 ----------------
