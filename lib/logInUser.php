@@ -8,7 +8,7 @@ if (isset($_SESSION['gsSession'])) {
 } else {
     $_SESSION['gsSession'] = $gsapi->startSession();
 }
-$gsapi->getCountry($_SERVER['REMOTE_ADDR']);
+print_r($gsapi->getCountry($_SERVER['REMOTE_ADDR']));
 
 require("GroovesharkAPI-PHP/gsUser.php");
 $gsuser = new gsUser();
@@ -21,7 +21,8 @@ $_SESSION['username'] = $username;
 // if auth successful,
 if ($gsapi->authenticate($gsuser)) {
     // if successfully authenticated, redirect to homepage
-    header("Location: /guess_that_song/index.html");
+    header("Location: /test/pub/test.html");
+    // echo "Successful Log in.";
 }
 
 ?>
