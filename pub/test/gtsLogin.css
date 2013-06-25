@@ -1,0 +1,23 @@
+.sb-row {
+    height: 50px;
+    width: 100%;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    border: 2px solid green;
+    border-collapse: collapse;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.sb-row > h4 {
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+.sb-row > small {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.control-group {
+    max-height: 50px;
+}
