@@ -13,10 +13,10 @@ $gsapi->getCountry($_SERVER['REMOTE_ADDR']);
 require("GroovesharkAPI-PHP/gsUser.php");
 $gsuser = new gsUser();
 // set token and log in session variable
-$token = $gsuser->setTokenFromPassword('balls'); //$_POST['pw']
+$token = $gsuser->setTokenFromPassword($test_username); //$_POST['pw']
 $_SESSION['token'] = $token;
 // set username
-$username = $gsuser->setUsername('balls'); //$_POST['un']
+$username = $gsuser->setUsername($test_password); //$_POST['un']
 $_SESSION['username'] = $username;
 // if auth successful,
 if ($gsapi->authenticate($gsuser)) {
