@@ -1,8 +1,8 @@
 <?php
-
+require('config.php');
 require("GroovesharkAPI-PHP/gsAPI.php");
 session_start();
-$gsapi = new gsAPI('gs_mattcondon', '94d69e01a378fabc0520a0583719f090');
+$gsapi = new gsAPI($api_key, $api_secret);
 if (isset($_SESSION['gsSession'])) {
     $gsapi->setSession($_SESSION['gsSession']);
 } else {
