@@ -1,0 +1,70 @@
+/*
+Global CSS
+*/
+body{
+	background-color: gray;
+}
+.container{
+	width:920px;
+}
+.wrapper{
+	margin-top:1em;
+	background-color: white;
+	border-radius: 6px;
+	height: 330px;
+}
+.sidebar{
+	height: 100%;
+	background-color:#ddd;
+}
+.main{
+
+}
+ul{
+	margin:0;
+	height: 100%;
+	border-right: solid gray 1px;
+	overflow: scroll;
+	overflow-x:hidden; 
+}
+li{
+	margin-left:0;
+	padding: 0;
+	list-style: none;
+	height:109;
+	border-top: gray solid 1px;
+}
+.active{
+	background-color: #f4a417;
+}
+.page-header{
+	margin-bottom: 20px;
+}
+/*
+Start Menu CSS
+*/
+.start_menu{
+
+}
+button{
+	
+}
+/*
+Game State CSS
+*/
+.game_state{
+
+}
+form{
+	margin-bottom: 80px;
+}
+.progress{
+	width:60%;
+	border-radius: 10px;
+}
+/*
+Win Screen CSS
+*/
+.win-screen{
+
+}
