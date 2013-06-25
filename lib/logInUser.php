@@ -21,7 +21,7 @@ $_SESSION['username'] = $username;
 // if auth successful,
 if ($gsapi->authenticate($gsuser)) {
     // if successfully authenticated, redirect to homepage
-    header("Location: /test/pub/test.html");
+    header("Location: /guess_that_song/pub/test.html");
     // echo "Successful Log in.";
 }
 
