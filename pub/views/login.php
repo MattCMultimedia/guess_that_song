@@ -2,7 +2,7 @@
 
 require('../../lib/config.php');
 session_start();
-if (isset($_POST['un']) && isset($_POST['pw'])) {
+if (isset($_SESSION['gsSession'])) {
     require("../../lib/GroovesharkAPI-PHP/gsAPI.php");
     $gsapi = new gsAPI($api_key, $api_secret);
     if (isset($_SESSION['gsSession'])) {
@@ -15,11 +15,19 @@ if (isset($_POST['un']) && isset($_POST['pw'])) {
     require("../../lib/GroovesharkAPI-PHP/gsUser.php");
     $gsuser = new gsUser();
     // set token and log in session variable
-    $token = $gsuser->setTokenFromPassword($_POST['pw']); //$_POST['pw']
-    $_SESSION['token'] = $token;
+    if (isset($_SESSION['token'])) {
+        $gsuser->setToken($_SESSION['token']);
+    } else {
+        $token = $gsuser->setTokenFromPassword($_POST['pw']); //$_POST['pw']
+        $_SESSION['token'] = $token;
+    }
     // set username
-    $username = $gsuser->setUsername($_POST['un']); //$_POST['un']
-    $_SESSION['username'] = $username;
+    if (isset($_SESSION['username'])) {
+        $gsuser->setUsername($_SESSION['username']);
+    } else {
+        $username = $gsuser->setUsername($_POST['un']); //$_POST['un']
+        $_SESSION['username'] = $username;
+    }
     // if auth successful,
     if ($gsapi->authenticate($gsuser)) {
         // if successfully authenticated, redirect to homepage

@@ -35,3 +35,10 @@
 </div>
 {/if}
 {/block}
+
+
+{block name="bottom"}
+{literal}
+<script src="../js/grooveshark.js"></script>
+{/literal}
+{/block}

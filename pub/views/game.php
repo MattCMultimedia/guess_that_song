@@ -21,7 +21,7 @@ $gsuser->setUsername($_SESSION['username']);
 if ($gsapi->authenticate($gsuser)) {
     $user_playlists = $gsapi->getUserPlaylists();
 } else {
-    $error_message = "Error Logging In. Please Sign in again.";
+    header("Location: /guess_that_song/pub/views/login.php");
 }
 
 require("../../lib/GroovesharkAPI-PHP/gsCustom.php");
