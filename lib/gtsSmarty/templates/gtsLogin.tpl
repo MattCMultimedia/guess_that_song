@@ -1,39 +1,37 @@
 {extends file="base.tpl"}
-{block name="css"}
-<link rel="stylesheet" type="text/css" href="gtsLogin.css">
+
+{block name="head"}
+<!-- <link rel="stylesheet" type="text/css" href="../gtsLogin.css"> -->
 {/block}
 
 {block name="sidebar"}
-{* For each row to display *}
-<div class="sb-row">
-    <h4>Title</h4>
-    <small>Description or List of songs...</small>
-</div>
-
-{* /foreach *}
+{foreach from=$genres key=id item=genre}
+<li>
+    <div class="sb-row genre" id="{$id}">
+        <h4>{$genre}</h4>
+    </div>
+</li>
+{/foreach}
 {/block}
 
 {block name="gameScreen"}
 
-<form action="" method="POST" class="form-horizontal">
-    <div class="control-group">
-        <label class="control-label" for="un">Email</label>
-        <div class="controls">
-            <input id="un" name="un" type="text" placeholder="Username or Email">
-        </div>
-    </div>
-    <div class="control-group">
-        <label class="control-label" for="pw">Grooveshark Password</label>
-        <div class="controls">
-            <input id="pw" name="pw" type="password" placeholder="Grooveshark Password">
-        </div>
-    </div>
-    <div class="control-group">
-        <div class="controls">
-            <input type="submit" class="btn btn-primary" value="Login with Grooveshark">
-        </div>
-    </div>
+<form action="" method="POST">
+    <h4>Username:</h4>
+    <input class="input" type="text" name="un" required>
+    <h4>Password:</h4>
+    <input class="input" type="password" name="pw" required>
+    <input type="submit" class="btn">
 </form>
 
 
+{/block}
+
+{block name="message"}
+{if isset($error_message)}
+<div class="alert">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>Warning!</strong> {$error_message}
+</div>
+{/if}
 {/block}

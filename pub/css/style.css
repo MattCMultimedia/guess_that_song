@@ -15,25 +15,37 @@ body{
 }
 .sidebar{
 	height: 100%;
-	background-color:#ddd;
-}
-.main{
-
+	background-color:white;
+	border-radius: 10px;
 }
 ul{
 	margin:0;
 	height: 100%;
 	border-right: solid gray 1px;
 	overflow: scroll;
-	overflow-x:hidden; 
+	overflow-x: hidden;
 }
 li{
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
 	margin-left:0;
 	padding: 0;
 	list-style: none;
-	height:109;
+	height:25px;
 	border-top: gray solid 1px;
 }
+
+.sb-row > h4 {
+    margin-top: 5px;
+    margin-bottom: 0;
+    padding-left: 10px;
+}
+.sb-row > small {
+    margin-top: 0;
+    padding-top: 0;
+}
+
 .active{
 	background-color: #f4a417;
 }
@@ -50,7 +62,7 @@ Start Menu CSS
 
 }
 button{
-	
+
 }
 h4,small{
 	color:gray;
@@ -60,9 +72,6 @@ h4,small{
 Game State CSS
 */
 .game_state{
-
-}
-form{
 
 }
 .progress{

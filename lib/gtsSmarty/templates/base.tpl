@@ -1,33 +1,39 @@
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>{block name="title"}Guess That Song!{/block}</title>
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link rel="stylesheet" type="text/css" href="base.css">
-    {block name="css"}{/block}
-</head>
-<body>
-    <div class="container">
-        <div class="sidebar">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        {block name="head"}
+        {/block}
+    </head>
 
-            {block name="sidebar"}
+<body class="container">
+    <div class="wrapper start-menu">
+        <div class="row">
 
+            <div class="sidebar span3">
+                <ul>
+                    {block name="sidebar"}
+                    {/block}
+                </ul>
+            </div>
 
-            {/block}
-        </div>
-        <div class="main-content">
-            <div class="gtsTitle"><h1>Guess That Song!</h1></div>
-            <div class="game">
+            <div class="main span7 offset1">
+                <div class="page-header">
+                  <h2>Guess That Song <small>powered by Grooveshark</small></h2>
+                </div>
+                {block name="message"}
+                {/block}
                 {block name="gameScreen"}
-
-
 
                 {/block}
             </div>
         </div>
     </div>
     <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="gtsLogin.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    {block name="bottom"}
+    {/block}
 </body>
 </html>
