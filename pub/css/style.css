@@ -46,7 +46,7 @@ li{
     padding-top: 0;
 }
 
-.active{
+.active, .genreSelected{
 	background-color: #f4a417;
 }
 .page-header{

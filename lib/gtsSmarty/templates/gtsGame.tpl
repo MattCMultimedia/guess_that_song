@@ -64,7 +64,7 @@ console.log(swfobject);
 <div class="row">
 
     <div class="span4 offset3">
-        <h4>Timer: 12</h4>
+        <h4>Timer: <span id="timer">0</span></h4>
         <h4>Points: 100</h4>
     </div>
 

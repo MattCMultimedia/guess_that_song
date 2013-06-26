@@ -91,7 +91,7 @@ $(document).ready(function() {
                                     completeSong();
                                     clearInterval(timingInterval);
                                 }
-                                $("#time-left").html(currentTime);
+                                $("#timer").html(currentTime);
                             }, 1000);
     }
 
@@ -109,8 +109,12 @@ $(document).ready(function() {
 
     var doc = $(document);
 
-    doc.on("click", ".genre", function(e) {
+    $(".genre").on("click", function(e) {
         e.preventDefault();
+        $(".genre").each(function() {
+            $(this).parent().removeClass('genreSelected');
+        });
+        $(this).parent().addClass('genreSelected');
         // clearInterval(timingInterval);
         // currentTime = maxTime;
         tagID = $(this).attr('id');

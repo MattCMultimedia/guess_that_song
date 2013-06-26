@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-06-26 20:37:04
+<?php /* Smarty version Smarty-3.1.13, created on 2013-06-26 21:18:01
          compiled from "../../lib/gtsSmarty/templates/gtsGame.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:40292703951cb48c41af7f0-43575207%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,13 +7,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '45700cc071f730a3011fa973ebf2ebcdd3e2d20d' => 
     array (
       0 => '../../lib/gtsSmarty/templates/gtsGame.tpl',
-      1 => 1372279022,
+      1 => 1372281453,
       2 => 'file',
     ),
     'f887735385c5362cac8cbe057d90aa6e5fc9e6d8' => 
     array (
       0 => '../../lib/gtsSmarty/templates/base.tpl',
-      1 => 1372277218,
+      1 => 1372280638,
       2 => 'file',
     ),
   ),
@@ -126,7 +126,7 @@ $_smarty_tpl->tpl_vars['playlist']->_loop = true;
 <div class="row">
 
     <div class="span4 offset3">
-        <h4>Timer: 12</h4>
+        <h4>Timer: <span id="timer">0</span></h4>
         <h4>Points: 100</h4>
     </div>
 
