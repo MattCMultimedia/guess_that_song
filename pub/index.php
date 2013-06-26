@@ -67,14 +67,15 @@
 					</div>
 					
 					<div class="row">
-						<form class="span3">	
+						<form class="span3" action="" method="POST">	
 							<h4>Guess!</h4>
-							 <input type="text" class="search-query" >
+							 <input type="text" class="search-query">
 						</form>
 						
 						<div class="span4">
 							<h4>Song <span class="current_song">6</span> of <span class="total_songs">12</span></h4>
 							<div class="progress progress-warning progress-striped active">
+							  <!--{* Dont forget javascripts on this Kyle! *} -->
 							  <div class="bar" style="width:50%"></div>
 							</div>
 						</div>
@@ -84,8 +85,8 @@
 					<div class="row">
 						
 						<div class="span4 offset3">
-							<h4>Timer: 12</h4>
-							<h4>Points: 100</h4>
+							<h4>Timer: <span class="timer">12</span></h4>
+							<h4>Points: <span class="points">100</span></h4>
 						</div>
 					
 					</div>
@@ -112,7 +113,7 @@
 
 					<div class="row">
 						<div class="span6">	
-							<h4>You Scored: 1200 pts!</h4>
+							<h4>You Scored: <span class="points">1200 pts!</span></h4>
 							<h4>&larr; Share!</h4>
 						</div>
 						<button class='btn btn-large btn-warning pull-right'></i> PLAY AGAIN</button>
