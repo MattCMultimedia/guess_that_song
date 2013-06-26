@@ -40,6 +40,9 @@ li{
 .page-header{
 	margin-bottom: 20px;
 }
+.input{
+	border-radius: 15px;
+}
 /*
 Start Menu CSS
 */
@@ -49,6 +52,10 @@ Start Menu CSS
 button{
 	
 }
+h4,small{
+	color:gray;
+	font-weight: normal;
+}
 /*
 Game State CSS
 */
@@ -56,7 +63,7 @@ Game State CSS
 
 }
 form{
-	margin-bottom: 80px;
+
 }
 .progress{
 	width:60%;
