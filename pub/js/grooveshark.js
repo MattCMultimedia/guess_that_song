@@ -87,6 +87,7 @@ $(document).ready(function() {
         stopMusic();
         if (currentSongID !== null) {
             completedSongs.push(currentSongID);
+            //return currentSongID;
         }
         currentSongCount++;
         $(".current_song").html(currentSongCount);
