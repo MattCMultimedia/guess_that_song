@@ -40,11 +40,9 @@ $smarty_smartyTest->setCompileDir('../../lib/gtsSmarty/templates_c');
 $smarty_smartyTest->setCacheDir('../../lib/gtsSmarty/cache');
 $smarty_smartyTest->setConfigDir('../../lib/gtsSmarty/configs');
 
-
 $smarty_smartyTest->assign('error_message', $error_message);
 $smarty_smartyTest->assign('playlists', $user_playlists);
 $smarty_smartyTest->assign('genres', $genres);
 $smarty_smartyTest->display('gtsGame.tpl');
-
 
 ?>

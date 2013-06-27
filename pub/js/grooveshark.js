@@ -44,7 +44,11 @@ $(document).ready(function() {
     var completedSongs = [];
     var tagID = null; //will store which genre we are using
     var timingInterval; //handles our counter
+    var maxSongCount = 10;
+    var currentSongCount = 1;
 
+    $(".total_songs").html(maxSongCount);
+    $(".current_song").html(currentSongCount);
     /*
     ** Creates our stream from a song ID **
     */
@@ -84,6 +88,8 @@ $(document).ready(function() {
         if (currentSongID !== null) {
             completedSongs.push(currentSongID);
         }
+        currentSongCount++;
+        $(".current_song").html(currentSongCount);
         initNewSong(tagID);
     }
 
