@@ -1044,7 +1044,7 @@ class gsAPI{
     /*
     * Private call to grooveshark API, this is where the magic happens!
     */
-    protected static function apiCall($method, $args=array(), $https=false){
+    public static function apiCall($method, $args=array(), $https=false){
 
         $payload = array('method'=>$method, 'parameters'=>$args, 'header'=>array('wsKey'=>self::$ws_key));
 

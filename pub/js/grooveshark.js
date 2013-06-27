@@ -4,7 +4,7 @@
 
 $("#search-bar").keyup(function (){
         console.log("hello");
-        
+
         $.ajax({
             url:"../../lib/getSearchResults.php",
             type: "POST",

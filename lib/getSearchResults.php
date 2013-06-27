@@ -22,7 +22,7 @@ foreach ($results as $i => $song) {
 }
 
 
-echo json_encode($html_result);
+echo json_encode(array('options' => array('a', 'b', 'c', 'd', 'e', 'f'), 'ids' => array(123456, 1234, 54546, 23453, 23454, 345435)));
 
 
 ?>
