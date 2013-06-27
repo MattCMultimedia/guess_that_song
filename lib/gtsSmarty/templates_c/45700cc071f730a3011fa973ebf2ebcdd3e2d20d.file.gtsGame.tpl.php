@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-06-26 21:18:01
+<?php /* Smarty version Smarty-3.1.13, created on 2013-06-27 03:44:31
          compiled from "../../lib/gtsSmarty/templates/gtsGame.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:40292703951cb48c41af7f0-43575207%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,13 +7,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '45700cc071f730a3011fa973ebf2ebcdd3e2d20d' => 
     array (
       0 => '../../lib/gtsSmarty/templates/gtsGame.tpl',
-      1 => 1372281453,
+      1 => 1372304668,
       2 => 'file',
     ),
     'f887735385c5362cac8cbe057d90aa6e5fc9e6d8' => 
     array (
       0 => '../../lib/gtsSmarty/templates/base.tpl',
-      1 => 1372280638,
+      1 => 1372288202,
       2 => 'file',
     ),
   ),
@@ -34,6 +34,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         
 
 <script src="../swfobject/src/swfobject.js"></script>
+<link href="../css/select2.css" rel="stylesheet"/>
+<script src="../js/select2.js"></script>
 <script>
 console.log(swfobject);
     swfobject.embedSWF("http://grooveshark.com/APIPlayer.swf", "player", "0", "0", "9.0.0", "", {}, {allowScriptAccess: "always"}, {id:"groovesharkPlayer", name:"groovesharkPlayer"}, function(e) {
@@ -111,7 +113,7 @@ $_smarty_tpl->tpl_vars['playlist']->_loop = true;
 <div class="row">
     <div class="span3">
         <h4>Guess!</h4>
-         <input type="text" class="search-query" >
+         <input type="text" class="search-query" id="search-bar" >
     </div>
 
     <div class="span4">

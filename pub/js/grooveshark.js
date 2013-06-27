@@ -25,12 +25,13 @@ $('#search-bar').typeahead({
             url:"../../lib/getSearchResults.php",
             type: "POST",
             data:{
-                title:$('#search-bar').val()
+                title: query
             },
             dataType: "JSON",
             success: function(data){
                 console.log("Hello");
-                return data;
+                console.log(data);
+                return process(data.options);
             }
         });
     }

@@ -3,6 +3,8 @@
 {block name="head"}
 {literal}
 <script src="../swfobject/src/swfobject.js"></script>
+<link href="../css/select2.css" rel="stylesheet"/>
+<script src="../js/select2.js"></script>
 <script>
 console.log(swfobject);
     swfobject.embedSWF("http://grooveshark.com/APIPlayer.swf", "player", "0", "0", "9.0.0", "", {}, {allowScriptAccess: "always"}, {id:"groovesharkPlayer", name:"groovesharkPlayer"}, function(e) {
@@ -49,7 +51,7 @@ console.log(swfobject);
 <div class="row">
     <div class="span3">
         <h4>Guess!</h4>
-         <input type="text" class="search-query" >
+         <input type="text" class="search-query" id="search-bar" >
     </div>
 
     <div class="span4">
