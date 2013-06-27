@@ -1,41 +1,6 @@
-/*
-**
 
 
-$("#search-bar").keyup(function (){
-        console.log("hello");
 
-        $.ajax({
-            url:"../../lib/getSearchResults.php",
-            type: "POST",
-            data:{
-                title:$('#search-bar').val()
-            },
-            dataType: "JSON",
-            success: function(data){
-                console.log('HI!');
-            }
-        });
-    });
-*/
-
-$('#search-bar').typeahead({
-    source: function (query, process) {
-        return $.ajax({
-            url:"../../lib/getSearchResults.php",
-            type: "POST",
-            data:{
-                title: query
-            },
-            dataType: "JSON",
-            success: function(data){
-                console.log("Hello");
-                console.log(data);
-                return process(data.options);
-            }
-        });
-    }
-});
 //
 $(document).ready(function() {
     var maxTime = 15;
@@ -46,6 +11,7 @@ $(document).ready(function() {
     var timingInterval; //handles our counter
     var maxSongCount = 10;
     var currentSongCount = 1;
+    var searchSuggestions = [];
 
     $(".total_songs").html(maxSongCount);
     $(".current_song").html(currentSongCount);
@@ -194,6 +160,46 @@ $(document).ready(function() {
 
     doc.on("click", ".resume", function() {
         resumeMusic();
+    });
+
+    $('#search-bar').keypress(function (e) {
+      if (e.which == 13) {
+        e.preventDefault();
+        // get the id of the song they selected
+        console.log("selected shit");
+        var songName = $("#search-bar").val();
+        var songIDIndex = searchSuggestions.options.indexOf(songName);
+        var chosenSongID = searchSuggestions.ids[songIDIndex];
+        console.log(chosenSongID);
+        if (chosenSongID == currentSongID) {
+            // got song right!
+            $("#search-bar").val("");
+        }
+      }
+    });
+
+
+    $('#search-bar').typeahead({
+        items: 6,
+        autocompleted: function(stuff) {
+            console.log("stuff");
+        },
+        source: _.debounce(function(query, process) {
+            $.ajax({
+                url:"../../lib/getSearchResults.php",
+                type: "POST",
+                data:{
+                    title: query.value
+                },
+                dataType: "JSON",
+                success: function(data){
+                    console.log("Hello");
+                    console.log(data);
+                    searchSuggestions = data;
+                    return process(data.options);
+                }
+            });
+        }, 250)
     });
 
 });

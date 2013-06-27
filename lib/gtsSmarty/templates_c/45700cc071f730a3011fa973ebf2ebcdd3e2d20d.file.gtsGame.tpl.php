@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-06-27 19:52:51
+<?php /* Smarty version Smarty-3.1.13, created on 2013-06-27 20:19:31
          compiled from "../../lib/gtsSmarty/templates/gtsGame.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:89053329051cc981323b608-68745839%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
-  'file_dependency' => 
+  'file_dependency' =>
   array (
-    '45700cc071f730a3011fa973ebf2ebcdd3e2d20d' => 
+    '45700cc071f730a3011fa973ebf2ebcdd3e2d20d' =>
     array (
       0 => '../../lib/gtsSmarty/templates/gtsGame.tpl',
       1 => 1372304668,
       2 => 'file',
     ),
-    'f887735385c5362cac8cbe057d90aa6e5fc9e6d8' => 
+    'f887735385c5362cac8cbe057d90aa6e5fc9e6d8' =>
     array (
       0 => '../../lib/gtsSmarty/templates/base.tpl',
       1 => 1372288202,
@@ -18,7 +18,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     ),
   ),
   'nocache_hash' => '89053329051cc981323b608-68745839',
-  'function' => 
+  'function' =>
   array (
   ),
   'has_nocache_code' => false,
@@ -31,11 +31,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <link rel="stylesheet" type="text/css" href="../css/bootstrap-responsive.min.css">
         <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../css/style.css">
-        
+
 
 <script src="../swfobject/src/swfobject.js"></script>
-<link href="../css/select2.css" rel="stylesheet"/>
-<script src="../js/select2.js"></script>
 <script>
 console.log(swfobject);
     swfobject.embedSWF("http://grooveshark.com/APIPlayer.swf", "player", "0", "0", "9.0.0", "", {}, {allowScriptAccess: "always"}, {id:"groovesharkPlayer", name:"groovesharkPlayer"}, function(e) {
@@ -64,7 +62,7 @@ console.log(swfobject);
 
             <div class="sidebar span3">
                 <ul>
-                    
+
 <?php if (isset($_smarty_tpl->tpl_vars['genres']->value)){?>
 <?php  $_smarty_tpl->tpl_vars['genre'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['genre']->_loop = false;
  $_smarty_tpl->tpl_vars['id'] = new Smarty_Variable;
@@ -107,9 +105,9 @@ $_smarty_tpl->tpl_vars['playlist']->_loop = true;
                 <div class="page-header">
                   <h2>Guess That Song <small>powered by Grooveshark</small></h2>
                 </div>
-                
-                
-                
+
+
+
 <div class="row">
     <div class="span3">
         <h4>Guess!</h4>
@@ -142,10 +140,12 @@ $_smarty_tpl->tpl_vars['playlist']->_loop = true;
     </div>
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-    
+
 <div id="player"></div>
 
+<script src="../js/underscore.js"></script>
 <script src="../js/grooveshark.js"></script>
+
 
 
 

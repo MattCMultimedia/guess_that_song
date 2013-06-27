@@ -3,8 +3,6 @@
 {block name="head"}
 {literal}
 <script src="../swfobject/src/swfobject.js"></script>
-<link href="../css/select2.css" rel="stylesheet"/>
-<script src="../js/select2.js"></script>
 <script>
 console.log(swfobject);
     swfobject.embedSWF("http://grooveshark.com/APIPlayer.swf", "player", "0", "0", "9.0.0", "", {}, {allowScriptAccess: "always"}, {id:"groovesharkPlayer", name:"groovesharkPlayer"}, function(e) {
@@ -80,7 +78,9 @@ console.log(swfobject);
 {block name="bottom"}
 <div id="player"></div>
 {literal}
+<script src="../js/underscore.js"></script>
 <script src="../js/grooveshark.js"></script>
+
 
 {/literal}
 {/block}
