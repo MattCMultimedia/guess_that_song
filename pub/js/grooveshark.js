@@ -1,3 +1,41 @@
+/*
+**
+
+
+$("#search-bar").keyup(function (){
+        console.log("hello");
+        
+        $.ajax({
+            url:"../../lib/getSearchResults.php",
+            type: "POST",
+            data:{
+                title:$('#search-bar').val()
+            },
+            dataType: "JSON",
+            success: function(data){
+                console.log('HI!');
+            }
+        });
+    });
+*/
+
+$('#search-bar').typeahead({
+    source: function (query, process) {
+        return $.ajax({
+            url:"../../lib/getSearchResults.php",
+            type: "POST",
+            data:{
+                title:$('#search-bar').val()
+            },
+            dataType: "JSON",
+            success: function(data){
+                console.log("Hello");
+                return data;
+            }
+        });
+    }
+});
+//
 $(document).ready(function() {
     var maxTime = 15;
     var currentTime = maxTime;
@@ -58,6 +96,9 @@ $(document).ready(function() {
         }
         return exists;
     }
+    /*
+    **
+    */
 
     /*
     ** Gets JSON from genre tag (autoPlayTag) that has our next SongID **
