@@ -8,6 +8,10 @@ if (isset($_SESSION['gsSession'])) {
 } else {
     $_SESSION['gsSession'] = $gsapi->startSession();
 }
+if (empty($_SESSION['gsSession'])) {
+	echo "Failed";
+	die();
+}
 $gsapi->getCountry($_SERVER['REMOTE_ADDR']);
 
 require("GroovesharkAPI-PHP/gsCustom.php");

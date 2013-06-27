@@ -48,7 +48,7 @@ class gsAPI{
         if (!isset(self::$instance)) {
             self::$instance = $this;
         }
-        self::$headers = array();
+        self::$headers = array("Host: api.grooveshark.com");
     }
 
     static function getInstance() {
@@ -1057,7 +1057,16 @@ class gsAPI{
         $sig = self::createMessageSig($postData, self::$ws_secret);
         $query_str = "?sig=" . $sig;
 
-        $url = sprintf('%s://%s',($https === true ? "https" : "http"),self::$api_host.$query_str);
+        $host = "api.grooveshark.com";
+
+        $dnsRecord = dns_get_record("api.grooveshark.com", DNS_A);
+        if (empty($dnsRecord)) {
+            return false;
+        }
+        $host = $dnsRecord[0]['ip'];
+
+
+        $url = sprintf('%s://%s',($https === true ? "https" : "http"),"$host/ws3.php".$query_str);
 
         $c = curl_init();
         curl_setopt($c, CURLOPT_URL, $url);
