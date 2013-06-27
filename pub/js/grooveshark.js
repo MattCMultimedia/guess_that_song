@@ -116,8 +116,8 @@ $(document).ready(function() {
             autoPlayState = JSON.stringify(responseData.autoplayState);
             var nextSong = responseData.nextSong.SongID;
             console.log("response: "+autoPlayState);
-            if (isAlreadyPlayed(nextSong)) {
-                console.log("already played.. trying again");
+            if (isAlreadyPlayed(nextSong) || !response) {
+                console.log("Either this song has already player or there was no response.")
                 getNewGenrePlayList(autoPlayTag);
             }else{
                 playSong(nextSong);
