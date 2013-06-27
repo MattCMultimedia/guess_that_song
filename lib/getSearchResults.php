@@ -14,9 +14,15 @@ require("GroovesharkAPI-PHP/gsSearch.php");
 
 $gsSearch = new gsSearch();
 $gsSearch->setTitle($_POST['title']);
-
 $results = $gsSearch->songSearchResults($max=10);
-echo json_encode($results);
+
+$html_result = array('options' => array());
+foreach ($results as $i => $song) {
+    array_push($html_result['options'], $song['SongName']);
+}
+
+
+echo json_encode($html_result);
 
 
 ?>
