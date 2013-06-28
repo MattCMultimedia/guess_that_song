@@ -8,7 +8,7 @@
 	} else {
 		$_SESSION['gsSession'] = $gsapi->startSession();
 	}
-	
+
 	if (isset($_SESSION['gsCountry']) && !empty($_SESSION['gsCountry'])) {
         $gsapi->setCountry($_SESSION['gsCountry']);
     } else {
@@ -26,8 +26,8 @@
     if (!$_SESSION['gsCountry']) {
         die("noCountry");
     }
-	
-    $streamInfo = $gsapi->getStreamKeyStreamServer($songID, false);
+
+    $streamInfo = $gsapi->getStreamKeyStreamServer($songID);
     echo json_encode($streamInfo);
-    
+
 ?>

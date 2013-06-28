@@ -37,7 +37,7 @@ console.log(swfobject);
 {if isset($playlists)}
 {foreach from=$playlists key=id item=playlist}
 <li>
-    <div class="sb-row genre" id="{$playlist.PlaylistID}">
+    <div class="sb-row genre playlist" id="{$playlist.PlaylistID}">
         <h4>{$playlist.PlaylistName}</h4>
     </div>
 </li>
@@ -53,19 +53,26 @@ console.log(swfobject);
     </div>
 
     <div class="span4">
-        <h4>Song <span class="current_song">6</span> of <span class="total_songs">12</span></h4>
+        <h4>Song <span id="current-song">0</span> of <span id="total-songs">0</span></h4>
         <div class="progress progress-warning progress-striped active">
-          <div class="bar" style="width:50%"></div>
+          <div class="bar" id="progress-bar" style="width:0%"></div>
         </div>
     </div>
 
 </div>
 
 <div class="row">
+    <div class="span3">
 
-    <div class="span4 offset3">
+        <div id="score-div">
+           <h4>Your Score: <span class="score">0</span></h4>
+           <small id="comment">Comment</small>
+        </div>
+
+    </div>
+    <div class="span4">
         <h4>Timer: <span id="timer">0</span></h4>
-        <h4>Points: 100</h4>
+        <h4>Points: <span class="score">0</span></h4>
     </div>
 
 </div>
@@ -79,7 +86,7 @@ console.log(swfobject);
 <div id="player"></div>
 {literal}
 <script src="../js/underscore.js"></script>
-<script src="../js/grooveshark.js"></script>
+<script src="../js/gs.js"></script>
 
 
 {/literal}

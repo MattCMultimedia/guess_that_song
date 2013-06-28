@@ -5,7 +5,7 @@
 $(document).ready(function() {
     var maxTime = 15;
     var currentTime = maxTime;
-    var currentSongID = null;
+    var currentSongID;
     var completedSongs = [];
     var tagID = null; //will store which genre we are using
     var timingInterval; //handles our counter

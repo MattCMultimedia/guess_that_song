@@ -84,3 +84,7 @@ Win Screen CSS
 .win-screen{
 
 }
+
+#score-div {
+	display: none;
+}
