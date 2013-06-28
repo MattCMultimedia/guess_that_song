@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-06-28 00:22:52
+<?php /* Smarty version Smarty-3.1.13, created on 2013-06-28 01:40:23
          compiled from "../../lib/gtsSmarty/templates/gtsGame.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:173981367351ccc5bb9f9d35-25919722%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '45700cc071f730a3011fa973ebf2ebcdd3e2d20d' => 
     array (
       0 => '../../lib/gtsSmarty/templates/gtsGame.tpl',
-      1 => 1372378969,
+      1 => 1372383511,
       2 => 'file',
     ),
     'f887735385c5362cac8cbe057d90aa6e5fc9e6d8' => 
@@ -63,6 +63,15 @@ console.log(swfobject);
             <div class="sidebar span3">
                 <ul>
                     
+<?php if (isset($_smarty_tpl->tpl_vars['popularSongs']->value)){?>
+<li>
+    <div class="sb-row genre popular" id="<?php echo $_smarty_tpl->tpl_vars['popularSongs']->value;?>
+">
+        <h4>Popular Songs</h4>
+    </div>
+</li>
+<?php }?>
+
 <?php if (isset($_smarty_tpl->tpl_vars['genres']->value)){?>
 <?php  $_smarty_tpl->tpl_vars['genre'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['genre']->_loop = false;
  $_smarty_tpl->tpl_vars['id'] = new Smarty_Variable;

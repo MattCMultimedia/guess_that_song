@@ -29,7 +29,13 @@ $gsCustom = new gsCustom();
 $genres = $gsCustom->getAutoplayTags();
 // now that we have the user's playlists and genres, render a combined one
 
+include('../../lib/getPopularSongs.php');
 
+$popularSongIDs = array();
+foreach ($popularSongs as $i => $song) {
+    array_push($popularSongIDs, $song['SongID']);
+}
+$popularSongs_str = join(",", $popularSongIDs);
 
 
 require('/opt/lib/smarty/Smarty.class.php');
@@ -44,6 +50,7 @@ $smarty_smartyTest->clearAllCache();
 $smarty_smartyTest->assign('error_message', $error_message);
 $smarty_smartyTest->assign('playlists', $user_playlists);
 $smarty_smartyTest->assign('genres', $genres);
+$smarty_smartyTest->assign('popularSongs', $popularSongs_str);
 $smarty_smartyTest->display('gtsGame.tpl');
 
 ?>

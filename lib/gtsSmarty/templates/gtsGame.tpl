@@ -25,6 +25,14 @@ console.log(swfobject);
 {/block}
 
 {block name="sidebar"}
+{if isset($popularSongs)}
+<li>
+    <div class="sb-row genre popular" id="{$popularSongs}">
+        <h4>Popular Songs</h4>
+    </div>
+</li>
+{/if}
+
 {if isset($genres)}
 {foreach from=$genres key=id item=genre}
 <li>

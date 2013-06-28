@@ -23,13 +23,20 @@ $(document).ready(function() {
     // set playBtn and search-bar
     $("#playBtn").attr('disabled', 'disabled');
     $("#search-bar").attr('disabled', 'disabled');
-
+    enableSidebarClicks();
 
     function startGame() {
         window.player.setVolume(100);
+        $("#score-div").hide();
         $("#search-bar").removeAttr("disabled");
-        $(".sidebar").attr('disabled', 'disabled');
+        $('.genre').off('click');
+        $(".genre").off('hover');
+
         // grabs the list of songs in the playlist
+        if (tagID.indexOf(',') !== -1) {
+            playGameWithPlaylist();
+            return;
+        }
         var endpointURL;
         var postData;
         if (playingPlaylist) {
@@ -64,6 +71,7 @@ $(document).ready(function() {
 
     function stopGame() {
         stopMusic();
+        endGame();
     }
 
 
@@ -73,7 +81,7 @@ $(document).ready(function() {
         $("#search-bar").val("");
         incrementSong();
         resetAndStartTimer();
-        addPoints(100);
+        addPoints(10*currentTime);
     }
 
     function gotSongWrong() {
@@ -88,6 +96,8 @@ $(document).ready(function() {
 
     function playGameWithPlaylist() {
         // play song at 0th index
+        fisherYates(playlist);
+        console.log(playlist);
         maxSongCount = playlist.length;
         $("#total-songs").html(maxSongCount);
         playSong(playlist[0]);
@@ -180,7 +190,6 @@ $(document).ready(function() {
         resetAndStartTimer();
         clearInterval(timingInterval);
         $("#search-bar").attr('disabled', 'disabled');
-        $("#playBtn").attr('disabled', 'disabled');
         $(".sidebar").removeAttr('disabled');
         console.log("Game ended. Would show score here.");
         if (currentScore < 0) {
@@ -191,6 +200,10 @@ $(document).ready(function() {
             $("#comment").html("Really Impressive!");
         }
         $("#score-div").show();
+        $("#playBtn").text("Play Again?");
+        $("#playBtn").on('click', function(){
+            location.reload(true);
+        });
 
     }
     // function playError() {
@@ -279,30 +292,37 @@ $(document).ready(function() {
     }
 
     var doc = $(document);
+    function enableSidebarClicks() {
 
-    $(".genre").on("click", function(e) {
-        e.preventDefault();
-        $(".genre").each(function() {
-            $(this).parent().removeClass('genreSelected');
+        $(".genre").on("click", function(e) {
+            e.preventDefault();
+            $(".genre").each(function() {
+                $(this).parent().removeClass('genreSelected');
+            });
+            $(this).parent().addClass('genreSelected');
+            tagID = $(this).attr('id');
+            if ($(this).hasClass("playlist")) {
+                // if is playlist
+                playingPlaylist = true;
+            } else if ($(this).hasClass('popular')) {
+                // is a popular playlist
+                playingPlaylist = true;
+                playlist = tagID.split(',');
+
+            } else {
+                playingPlaylist = false;
+            }
+            $("#playBtn").removeAttr('disabled');
         });
-        $(this).parent().addClass('genreSelected');
-        tagID = $(this).attr('id');
-        if ($(this).hasClass("playlist")) {
-            // if is playlist
-            playingPlaylist = true;
-        } else {
-            playingPlaylist = false;
-        }
-        $("#playBtn").removeAttr('disabled');
-    });
 
-    $(".genre").hover(function() {
-        $(this).parent().addClass('active');
-        $(this).css('color', 'black');
-    }, function() {
-        $(this).parent().removeClass('active');
-        $(this).css('color', 'gray');
-    });
+        $(".genre").hover(function() {
+            $(this).parent().addClass('active');
+            $(this).css('color', 'black');
+        }, function() {
+            $(this).parent().removeClass('active');
+            $(this).css('color', 'gray');
+        });
+    }
 
     doc.on("click", "#playBtn", function(e) {
         e.preventDefault();
@@ -374,5 +394,39 @@ $(document).ready(function() {
             });
         }, 250)
     });
+
+    function fisherYates ( someArray ) {
+      var i = someArray.length, j, temp;
+      if ( i === 0 ) return false;
+      while ( --i ) {
+         j = Math.floor( Math.random() * ( i + 1 ) );
+         temp = someArray[i];
+         someArray[i] = someArray[j];
+         someArray[j] = temp;
+       }
+    }
+
+
+    function lDist(s, t) {
+        len_s = s.length;
+        len_t = t.length;
+
+        if (len_s === 0) {
+            return len_t;
+        }
+        if (len_t === 0) {
+            return len_s;
+        }
+        var cost;
+        if (s.slice(0, len_s-1) == t.slice(0, len_t-1)) {
+            cost = 0;
+        } else {
+            cost = 1;
+        }
+
+        return Math.min(lDist(s.slice(0, len_s-1), t) + 1,
+                        lDist(s, t.slice(0, len_t-1)) + 1,
+                        lDist(s.slice(0, len_s-1), t.slice(0, len_t-1)) + cost);
+    }
 
 });
